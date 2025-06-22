@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RM Nice Digital Form</title>
+  <link rel="icon" href="images/head.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      padding: 20px;
+      background: linear-gradient(to bottom, #ffffff, #ff2b85, #da25bd);
+    }
+
+    header {
+      width: 100%;
+      margin: 2px;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 50px;
+      height: auto;
+      margin-right: 10px;
+      box-shadow: #ccc;
+    }
+
+    .title h1 {
+      margin: 0;
+      color: #1a1a8a;
+      font-weight: bold;
+    }
+
+    .title p {
+      margin: 0;
+      color: #6caddf;
+      font-size: 14px;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 80px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    form label {
+      display: block;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/head.png" alt="Logo" />
+      <div class="title">
+        <h1>RM Nice Digital</h1>
+        <p>The Creative People</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="form-container">
+    <form id="whatsappForm" onsubmit="sendToWhatsApp(); return false;">
+      <h2>Keep in touch with us</h2>
+      <input type="text" id="name" placeholder="Enter your name" required />
+      <input type="tel" id="mobile" placeholder="Enter your mobile number" required />
+      <input type="email" id="email" placeholder="Enter your email ID" required />
+      <button type="submit">Send to WhatsApp</button>
+    </form>
+  </div>
+
+  <script>
+    function sendToWhatsApp() {
+      const name = document.getElementById("name").value;
+      const mobile = document.getElementById("mobile").value;
+      const email = document.getElementById("email").value;
+
+      const message = `Name: ${name}%0AMobile: ${mobile}%0AEmail: ${email}`;
+      const phoneNumber = "919444248188"; // Replace with your WhatsApp number
+
+      const url = `https://wa.me/${phoneNumber}?text=${message}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
